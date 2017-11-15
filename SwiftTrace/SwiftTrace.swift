@@ -117,7 +117,7 @@ open class SwiftTraceInfo: NSObject {
         - returns: pointer to original function implementing method
      */
     open func trace() -> IMP {
-        print( symbol )
+        NSLog("%@, ⌘: %@", symbol, Thread.current.isMainThread ? "true" : "false")
         return original
     }
 
@@ -148,7 +148,7 @@ extension NSRegularExpression {
             try self.init(pattern: pattern, options: [])
         }
         catch let error as NSError {
-            print(error.localizedDescription)
+            NSLog(error.localizedDescription)
             return nil
         }
     }
